@@ -1,0 +1,27 @@
+<p>Listado de Heroes</p>
+
+<!--La directiva *ngIf es usado para modificar algo en la parte html
+haciendo alguna validacion. Para usar el else, hay que poner el ";" despues de la condicion-->
+<div *ngIf="heroeBorrado; else noBorrado">
+    <h3>Heroe Borrado - <small> {{ heroeBorrado }} </small></h3>
+</div>
+
+<!--El ng-template se usa para hacer de referencia para algun otro elemento
+en la parte de html que use alguna directiva-->
+<ng-template #noBorrado>
+    <h3>Nada ha sido borrado</h3>
+</ng-template>
+
+
+    <button (click)="borrarHeroe()">
+        Borrar
+    </button>
+
+<!--Usar directiva *ngFor para usar un ciclo para llenar el UL-->
+<ul>
+    <li *ngFor="let heroe of heroes; let i = index"> 
+       {{ i + 1 }} - {{ heroe }} 
+    </li>
+</ul>
+
+
